@@ -1,0 +1,11 @@
+{
+  "name": "psychology_test",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "Egor_Popov",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.2.0",
+    "mysql2": "^2.3.3"
+  }
+}

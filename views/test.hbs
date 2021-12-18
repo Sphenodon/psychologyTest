@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TEST</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="height=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"></head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center" id="navbar">
+        <a class="navbar-brand" href=""></a>
+        <a class="nav-link text-white " href="">Тест на сознательный контроль</a>
+    </nav>
+
+    <div class="p-4">
+        <div class = "container w-50 rules" id="SP">
+            <h3>Приветствую,</h3>
+            <p class="fs-5">В этом тесте вам предстоит поиграть в игру. <br>Первые 10 забегов играйте как обычно, ни на что не
+                отвлекаясь. <br>Затем 10 забегов старайтесь думать о том, как вы перепрыгиваете, расчитываете дистанцию
+                прыжка, думайте о том, что у вас всего одна жизнь, играйте "осознанно". <br>Для того чтобы вспомнить об этом,
+                над динозавриком появится красный череп.
+                Успехов!
+            </p>
+            <div class="mx-auto" style="width: 120px;">
+                <button type="button" class="btn btn-success newGame">Начать игру</button>
+            </div>
+        </div>
+
+        <div class = "container invisible w-50 dinoGame" id="SP">
+            <div class="game" id="SPGame">
+
+                <div class="run" id="dino"><div class="" id="scull"></div></div>
+                <div class="" id="cactus"></div>
+            </div>
+            <h5 class="">Счет: <span class="score "></span></h5>
+            <h5 class="">Попыток: <span class="tryCount"></span></h5>
+            <div class="mx-auto" style="width: 120px;">
+                <button type="button" class="btn btn-dark newRun" id="newRun">Новый забег</button>
+            </div>
+        </div>
+
+        <div class = "container w-50 results invisible" id="SP">
+
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="inputName" class="form-label">Имя (любое)</label>
+                    <input name="name" type="text" class="form-control" id="inputName" aria-describedby="emailHelp" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputAge" class="form-label">Сколько вам лет</label>
+                    <input name="age" type="number" class="form-control" id="inputAge" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputGamer" class="form-label">Вы играете в игры, где важна реакция?</label>
+                    <div class="form-check">
+                        <input name="gamer" class="form-check-input" type="radio" id="flexRadioDefault1" value="1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Да
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input name="gamer" class="form-check-input" type="radio" id="flexRadioDefault2" value="0" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Нет
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputComment" class="form-label">Комментарий (если есть, что сказать)</label>
+                    <textarea name="comment" type="text" class="form-control" id="inputComment" rows="3"></textarea>
+                </div>
+
+                <input type="submit" class="btn btn-success" value="Отправить" />
+
+                <div class="mb-3 invisible">
+                    <label for="inputResults" class="form-label">Данные</label>
+                    <input name="results" type="text" class="form-control" id="inputResults" value="">
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="/js/test.js"></script>
+</body>
+</html>

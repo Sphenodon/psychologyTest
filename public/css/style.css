@@ -1,0 +1,94 @@
+@media screen and (max-width: 980px){
+    #SP{
+        width:100%!important;
+    }
+    #SPGame{
+        width: 100%;
+    }
+}
+
+.game{
+    width: 600px;
+    height: 200px;
+    background-image: url(/img/background.png);
+    margin: auto;
+    animation: backgroundMov 600s infinite linear;
+}
+
+@keyframes backgroundMov {
+    from{
+        background-position: 20000px;
+    }
+    to{
+        background-position: 0;
+    }
+}
+
+.scull{
+    width: 40px;
+    height: 32px;
+    background-image: url(/img/scull.png);
+    background-size:  40px 32px;
+    position: relative;
+    top: -40px;
+    left: 5px;
+}
+
+#dino{
+    width: 50px;
+    height: 50px;
+    background-image: url(/img/dino-sprite.png);
+    background-position: -890px 1px;
+    background-size: 1400px 70px;
+    position: relative;
+    top: 150px;
+    left: 5px;
+}
+
+.run{
+    animation: run 0.4s steps(1) infinite;
+}
+
+@keyframes run{
+    0%{
+        background-position-x: -890px;
+    }
+    50%{
+        background-position-x: -942px;
+    }
+}
+
+#cactus{
+    width: 18px;
+    height: 32px;
+    background-image: url(/img/cactus.png);
+    background-size:  18px 32px;
+    position: relative;
+    top: 118px;
+    left: 580px;
+}
+
+.jump{
+    animation: jump 0.33s steps(1);
+}
+
+@keyframes jump {
+    0%{
+        /*background-position-x: -890px;*/
+        top: 150px;
+    }
+    25%{
+
+        top: 115px;
+    }
+    50%{
+        /*background-position-x: -940px;*/
+        top: 80px;
+    }
+    75%{
+        top: 115px;
+    }
+    100%{
+        top: 150px;
+    }
+}
