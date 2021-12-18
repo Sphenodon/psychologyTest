@@ -1,7 +1,7 @@
 module.exports = {
-    CONNECTION_LIMIT: 5,
+    MAX: 20,
     HOST: 'localhost',
-    USER: 'user',
+    USER: 'postgres',
     DATABASE: 'psychologyTest',
-    PASSWORD: '1q2w3e4r5t'
+    PASSWORD: '7465'
 };
