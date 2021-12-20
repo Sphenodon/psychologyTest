@@ -27,8 +27,6 @@ new_game.addEventListener("click", function (){
 function newGame(){
     document.getElementsByClassName("rules")[0].remove();
     document.getElementById("SP").classList.remove('invisible');
-
-    newRun();
 }
 
 function jump(){
@@ -59,7 +57,7 @@ function createCactus() {
             $('.score').html('' + score + '')
 
             clearInterval(leftTimer);
-            setTimeout(createCactus, Math.random() * (1000 - score*10) + score*10)
+            setTimeout(createCactus, 1000 + score*10)
 
         } else if(cactusPosition > 5 && cactusPosition < 55 && dinoTop >= 130){
 
@@ -79,7 +77,7 @@ function createCactus() {
 
         } else {
 
-            cactusPosition -= 10 + score/3;
+            cactusPosition -= 10 + score/2;
             cactus.style.left = cactusPosition + 'px';
 
         }

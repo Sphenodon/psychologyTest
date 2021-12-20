@@ -6,7 +6,10 @@ const connection = new Pool({
     host: dbConfig.HOST,
     user: dbConfig.USER,
     database: dbConfig.DATABASE,
-    password: dbConfig.PASSWORD
+    password: dbConfig.PASSWORD,
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
 connection.connect(function (err){
