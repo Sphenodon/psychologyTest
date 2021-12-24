@@ -3,9 +3,32 @@ const cactus = document.getElementById("cactus")
 const game = document.getElementsByClassName("game")[0]
 const gameWidth = parseInt(window.getComputedStyle(game).getPropertyValue("width"))
 
+let userDevice = 'ПК/ноутбук, '
 let tryCount = 0
 let score = 0
 let results = ''
+const secondRun = 7
+const countRun = 12
+let refreshRate = 5
+let speedCactus = 5
+let difficult = 3
+let deathBackgroundPosition = 992
+let deathBorderLeft = 10
+let deathBorderRight = 50
+let deathBorderTop = 135
+let deathLogoTop = 0.05
+
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+    userDevice = 'телефон, '
+    refreshRate = 10
+    speedCactus = 2
+    difficult = 10
+    deathBackgroundPosition = 496
+    deathBorderLeft = 7
+    deathBorderRight = 27
+    deathBorderTop = 155
+    deathLogoTop = 0.25
+}
 
 document.addEventListener("keydown", function (event){
     jump()
@@ -30,13 +53,14 @@ function newGame(){
 }
 
 function jump(){
-    if (dino.classList !== "jump"){
+    if (dino.classList !== "run jump"){
 
         dino.classList.add("jump")
+
+        setTimeout(function (){
+            dino.classList.remove("jump")
+        },510)
     }
-    setTimeout(function (){
-        dino.classList.remove("jump")
-    },350)
 }
 
 function createCactus() {
@@ -49,7 +73,6 @@ function createCactus() {
     let leftTimer = setInterval(function (){
         let dinoTop = parseInt(window.getComputedStyle(dino).getPropertyValue("top"))
         let cactusPosition = parseInt(window.getComputedStyle(cactus).getPropertyValue("left"))
-
         if (cactusPosition < 0) {
 
             game.removeChild(cactus);
@@ -59,29 +82,30 @@ function createCactus() {
             clearInterval(leftTimer);
             setTimeout(createCactus, 1000 + score*10)
 
-        } else if(cactusPosition > 5 && cactusPosition < 55 && dinoTop >= 130){
+        } else if(cactusPosition > deathBorderLeft && cactusPosition < deathBorderRight && dinoTop >= deathBorderTop){
 
             $('.tryCount').html('' + tryCount +'')
-            $('.game').append('<h5 class="mx-auto" style="width: 95px; color: #cd0000;">YOU DIED</h5>')
-            $('.run').css({'animation': 'stop', 'background-position':' -1042px 1px'})
+            $('.game').append(`<h5 class="mx-auto" style="top: ${dinoTop*deathLogoTop}px; width: 95px; position: relative; color: #cd0000;">YOU DIED</h5>`)
+            $('.run').css({'animation': 'stop', 'background-position':` -${deathBackgroundPosition}px 1px`})
             $('#newRun').removeClass('invisible');
             results = results + tryCount + ", " + score + ", "
             $('#inputResults').val(results)
 
-            if(tryCount === 20){
+            if(tryCount === countRun){
                 $('.dinoGame').remove()
                 $('.results').removeClass('invisible')
+                $('#inputComment').val(userDevice)
             }
 
             clearInterval(leftTimer);
 
         } else {
 
-            cactusPosition -= 10 + score/2;
+            cactusPosition -= speedCactus + score/difficult;
             cactus.style.left = cactusPosition + 'px';
 
         }
-    }, 20);
+    }, 10);
 }
 
 function newRun(){
@@ -95,7 +119,7 @@ function newRun(){
 
     tryCount++
 
-    if (tryCount > 10){
+    if (tryCount > secondRun){
         $('#scull').addClass('scull')
     }
 
