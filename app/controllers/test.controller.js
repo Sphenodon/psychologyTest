@@ -1,13 +1,14 @@
-const Test = require('../models/test.model.js');
+const Test = require('../models/test.model');
 
-exports.getTest = function (request, response) {
+exports.getTest = async function (request, response) {
+    const medianList = await Test.getDataForGraphs();
     response.render("test",{
-
+        medianList: medianList,
     });
 }
 
-exports.getThanks = function (request, response) {
-    response.render("thanks",{
+exports.getThanks = async function (request, response) {
+    response.render("thanks", {
 
     });
 }
@@ -24,4 +25,16 @@ exports.postTest = function (request, response) {
     Test.postResults(name, age, gamer, comment, results);
 
     response.redirect("/thanks");
+}
+
+exports.getData = async function (request, response) {
+    if (request.session.username == 'admin') {
+        let csv = await Test.getResults();
+
+        response.setHeader("Content-Type", "text/csv");
+        response.setHeader("Content-Disposition", "attachment; filename=users.csv");
+        response.status(200).end(csv);
+    } else {
+        response.status(403).send('Access Denied!');
+    }
 }

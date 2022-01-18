@@ -95,6 +95,9 @@ function createCactus() {
                 $('.dinoGame').remove()
                 $('.results').removeClass('invisible')
                 $('#inputComment').val(userDevice)
+                $('#medianChart').removeClass('invisible')
+                createUserChart();
+                createMedianChart();
             }
 
             clearInterval(leftTimer);
